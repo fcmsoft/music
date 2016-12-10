@@ -1,0 +1,10 @@
+<div class="main-container">
+  <app-header></app-header>
+  <section class="detail">
+    <h1>{{$ctrl.artist.artist_name}}</h1>
+    <img class="artist-image" src="{{$ctrl.artist.artist_image_file}}" alt="{{$ctrl.artist.artist_name}}">
+    <h3 ng-show="$ctrl.artist.artist_bio">Bio</h3>
+    <p>{{$ctrl.artist.artist_bio}}</p>
+  </section>
+  <app-footer></app-footer>
+</div>

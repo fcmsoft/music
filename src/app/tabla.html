@@ -1,0 +1,33 @@
+<section class="artist-list">
+  <h2>
+    Artistas:
+  </h2>
+  <section class="pagination">
+    <p>Total: {{$ctrl.artists.total}}</p>
+    <p>Items per Page: {{$ctrl.artists.limit}}</p>
+    <p>
+      Page: 
+        <select ng-model="$ctrl.page" ng-change="changePage()">
+          <option ng-repeat="number in $ctrl.pages">{{number}}</option>
+        </select>  
+      of {{$ctrl.artists.total_pages}}
+    </p>
+  </section>
+  
+  <table class="artistas">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>País</th>
+      </tr>
+    </thead>  
+    <tr ng-repeat="artist in $ctrl.artists.dataset">
+      <td>
+        <a ng-href="/artists/{{artist.artist_id}}">{{artist.artist_name}}</a>
+      </td>
+      <td>
+        <p>{{artist.artist_location}}</p>
+      </td> 
+    </tr>
+  </table>
+</section>
