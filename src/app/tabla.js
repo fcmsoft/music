@@ -1,7 +1,7 @@
 class TablaController {
   /** @ngInject */
   constructor(MusicaService, $log) {
-    this.page = 1;
+    this.page = {page: 1};
     this.artists = {};
     this.console = $log;
     this.service = MusicaService;
@@ -9,19 +9,22 @@ class TablaController {
     this.pages = [];
 
     // get first page
-    this.fetch(this.page); 
-    $log.log(this.pages);
+    this.fetch(this.page);
   }
 
   fetch() {
     this.service
-      .getArtists(this.page)
+      .getArtists(this.page.page)
       .then(response => {
         this.artists = response.data;
         this.console.log(this.artists);
         // populate array of pages
         for (let i = 1; i <= this.artists.total_pages; i++) {
-          this.pages.push(i);
+          this.pages.push(
+            {
+              page: i
+            }
+          );
         }
       })
       .catch(error => {
@@ -31,6 +34,7 @@ class TablaController {
 
   changePage() {
     this.console.log(this.page);
+    this.fetch();
   }
 }
 

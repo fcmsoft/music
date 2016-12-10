@@ -7,8 +7,7 @@
     <p>Items per Page: {{$ctrl.artists.limit}}</p>
     <p>
       Page: 
-        <select ng-model="$ctrl.page" ng-change="changePage()">
-          <option ng-repeat="number in $ctrl.pages">{{number}}</option>
+        <select ng-model="$ctrl.page" ng-options="number.page for number in $ctrl.pages" ng-change="$ctrl.changePage()">
         </select>  
       of {{$ctrl.artists.total_pages}}
     </p>
