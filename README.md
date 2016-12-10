@@ -6,12 +6,12 @@ Dependencies: node version >= 6 (with npm version >= 3.8)
 
 To install: 
 
-	<p>npm install</p>
+	npm install
 
 To build:
 
-	<p>npm run build</p>
+	npm run build
 
 To serve develop mode:
 
-	<p>npm run serve</p>
+	npm run serve
